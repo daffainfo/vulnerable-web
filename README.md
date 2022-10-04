@@ -11,41 +11,29 @@ List of vulnerability:
 * CSRF
 * IDOR
 * Host Header Injection
+* Local File Inclusion
 * Open Redirect
 * Cross-Site Scripting
-* CRLF Injection (Check next section)
+* CRLF Injection
 
-## Nginx configuration
+## Notes Vulnerability
+### Host Header Injection
+You need to change the email and password at `/user/cek-forgot-password.php` in line 33,34, and 38
+
+## Pre Requisite
+1. Install some package first
+   - mysql-server
+   - php8.1-fpm
+   - php8.1-mysql
+   - php8.1
+   - nginx
+2. Import the database using `mysql -u user -p db < backup.sql` and then change the database information in `config.php`
+3. Replace `/etc/nginx/sites-enabled/default` content with `nginx.conf` file
+
+## Installation
 ```
-server {
-        listen 80 default_server;
-        listen [::]:80 default_server;
-
-        root /var/www/html;
-
-        index index.php index.html index.htm index.nginx-debian.html;
-
-        server_name _;
-        
-        location / {
-                try_files $uri $uri/ =404;
-        }
-
-        location /img {
-                return 302 $host$uri;
-                # auth_basic "Restricted Content";
-                # auth_basic_user_file /etc/nginx/.htpasswd;
-        }
-
-        location ~ \.php$ {
-                include snippets/fastcgi-php.conf;
-                fastcgi_pass unix:/run/php/php8.1-fpm.sock;
-        }
-}
+$ cd /var/www/html
+$ git clone https://github.com/daffainfo/vulnerable-web
+$ chown -R www-data:www-data /var/www/html/
+$ chmod -R 777 /var/www/html
 ```
-
-## How to Install?
-1. Clone this repository at `/var/www/html`
-2. Replace `sites-enabled/default` content with `nginx.conf` file
-3. Import the database
-4. Enjoy!
