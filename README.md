@@ -18,7 +18,7 @@ List of vulnerability:
 
 ## Notes Vulnerability
 ### Host Header Injection
-You need to change the email and password at `/user/cek-forgot-password.php` in line 33,34, and 38
+You need to change the email and password at `/users/cek-forgot-password.php` in line 33,34, and 38
 
 ## Pre Requisite
 1. Install some package first

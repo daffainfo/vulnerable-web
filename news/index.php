@@ -99,7 +99,7 @@
         <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="../user"><h2>Log In</h2></a>
+                    <a class="nav-link" href="../users"><h2>Log In</h2></a>
                 </li>
             </ul>
         </div>
