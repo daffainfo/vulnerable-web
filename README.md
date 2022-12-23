@@ -1,9 +1,7 @@
 # Vulnerable Web
 
 ## Description
-Simple vulnerability labs that created using PHP and MySQL.
-
-**Not for sale**
+Simple vulnerability labs that created using PHP and MySQL. (**Not for sale**)
 
 List of vulnerability:
 * Arbitrary File Upload
@@ -17,8 +15,8 @@ List of vulnerability:
 * CRLF Injection
 
 ## Notes Vulnerability
-### Host Header Injection
-You need to change the email and password at `/users/cek-forgot-password.php` in line 33,34, and 38
+- ### Host Header Injection
+You need to import `env_email` and `env_password` in order to make Host Header Injection work
 
 ## Pre Requisite
   - mysql-server
@@ -29,11 +27,13 @@ You need to change the email and password at `/users/cek-forgot-password.php` in
 
 ## Installation (Manual)
 ```
-$ cd /var/www/html
-$ git clone https://github.com/daffainfo/vulnerable-web
-$ cd vulnerable-web
-$ mysql -u user -p name_db < conf/database.sql
-$ cp conf/default /etc/nginx/sites-enabled/default
-$ chown -R www-data:www-data /var/www/html/
-$ chmod -R 777 /var/www/html
+$ docker build -t vulnerable-web:latest --build-arg email=changeme@gmail.com --build-arg password_email=changeme .
+$ docker run -p80:80 --name vulnerable-web -d -t vulnerable-web:latest
+$ curl "http://localhost:80"
+```
+
+## Installation (Docker Hub)
+```
+$ docker run -p80:80 --name vulnerable-web -t daffainfo/vulnerable-web:latest
+$ curl "http://localhost:80"
 ```
