@@ -21,19 +21,19 @@ List of vulnerability:
 You need to change the email and password at `/users/cek-forgot-password.php` in line 33,34, and 38
 
 ## Pre Requisite
-1. Install some package first
-   - mysql-server
-   - php8.1-fpm
-   - php8.1-mysql
-   - php8.1
-   - nginx
-2. Import the database using `mysql -u user -p db < backup.sql` and then change the database information in `config.php`
-3. Replace `/etc/nginx/sites-enabled/default` content with `nginx.conf` file
+  - mysql-server
+  - php8.1-fpm
+  - php8.1-mysql
+  - php8.1
+  - nginx
 
-## Installation
+## Installation (Manual)
 ```
 $ cd /var/www/html
 $ git clone https://github.com/daffainfo/vulnerable-web
+$ cd vulnerable-web
+$ mysql -u user -p name_db < conf/database.sql
+$ cp conf/default /etc/nginx/sites-enabled/default
 $ chown -R www-data:www-data /var/www/html/
 $ chmod -R 777 /var/www/html
 ```

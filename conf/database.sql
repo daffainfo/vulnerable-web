@@ -61,11 +61,11 @@ CREATE TABLE `daftar_barang` (
 -- Dumping data for table `daftar_barang`
 --
 
-LOCK TABLES `daftar_barang` WRITE;
+-- LOCK TABLES `daftar_barang` WRITE;
 /*!40000 ALTER TABLE `daftar_barang` DISABLE KEYS */;
-INSERT INTO `daftar_barang` VALUES (1,'tests',1,'test'),(4,'sbatu',10,'santoso'),(5,'semen',15,'santoso'),(7,'beton',1,'santoso'),(8,'stnk',2,'santoso'),(14,'data',10,'TestUser2'),(18,'meteor',100,'santoso'),(19,'CSRF',99,'santoso'),(22,'test',10,''),(25,'test',10,''),(29,'Ayam',10,'adimoel'),(36,'tas',10,'ridone'),(37,'plastik',190,'ridone'),(43,'plastik',190,'ridone'),(48,'levis',100,'ridone');
+-- INSERT INTO `daftar_barang` VALUES (1,'tests',1,'test'),(4,'sbatu',10,'santoso'),(5,'semen',15,'santoso'),(7,'beton',1,'santoso'),(8,'stnk',2,'santoso'),(14,'data',10,'TestUser2'),(18,'meteor',100,'santoso'),(19,'CSRF',99,'santoso'),(22,'test',10,''),(25,'test',10,''),(29,'Ayam',10,'adimoel'),(36,'tas',10,'ridone'),(37,'plastik',190,'ridone'),(43,'plastik',190,'ridone'),(48,'levis',100,'ridone');
 /*!40000 ALTER TABLE `daftar_barang` ENABLE KEYS */;
-UNLOCK TABLES;
+-- UNLOCK TABLES;
 
 --
 -- Table structure for table `news`

@@ -30,12 +30,12 @@
 		$mail->SMTPSecure = "tls";
 		$mail->Port       = 587;
 		$mail->Host       = "smtp.gmail.com";
-		$mail->Username   = "YOUREMAIL@gmail.com";
-		$mail->Password   = "PASSWORD_EMAIL";
+		$mail->Username   = getenv("env_email");
+		$mail->Password   = getenv("env_password");
 
 		$mail->IsHTML(true);
 		$mail->AddAddress($_POST['email'], "Daffa");
-		$mail->SetFrom("YOUREMAIL@gmail.com", "Admin Login Password");
+		$mail->SetFrom(getenv("env_email"), "Admin Login Password");
 		$mail->Subject = "Password Reset Link";
 		$content = "<p>Here is your password reset token</p><p>http://" . $_SERVER['HTTP_HOST'] . "/reset/password/" . $result;
 		$mail->MsgHTML($content);
