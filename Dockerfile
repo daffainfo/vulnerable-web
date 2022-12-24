@@ -15,10 +15,9 @@ RUN apt-get update && apt-get install -y \
   nginx \
   php8.1-mysql \
   php8.1-fpm \
-  php8.1 \
-  mysql-server
+  php8.1 
 
-# Download and extract WordPress
+# move application
 COPY app /var/www/html
 
 # Change permission
@@ -26,21 +25,21 @@ RUN chown -R www-data:www-data /var/www/html/
 RUN chmod -R 777 /var/www/html/
 
 # Set home directory for MySQL
-RUN service mysql stop && usermod -d /var/lib/mysql/ mysql
+# RUN service mysql stop && usermod -d /var/lib/mysql/ mysql
 
 # Copy nginx and sql
 COPY conf/default /etc/nginx/sites-enabled/default
-COPY conf/database.sql .
+# COPY conf/database.sql .
 
 # Configure MySQL and Restore DB
-RUN service mysql start && \
-  mysql -u root -e "CREATE DATABASE vulnweb;" && \
-  mysql -u root -e "CREATE USER 'vulnerableweb'@'%' IDENTIFIED BY 'vulnerableweb';" && \
-  mysql -u root -e "GRANT ALL PRIVILEGES ON vulnweb.* TO 'vulnerableweb'@'%';" && \
-  mysql -u root -e "FLUSH PRIVILEGES;" && \
-  mysql -u vulnerableweb -pvulnerableweb vulnweb < database.sql
+# RUN service mysql start && \
+#   mysql -u root -e "CREATE DATABASE vulnweb;" && \
+#   mysql -u root -e "CREATE USER 'vulnerableweb'@'%' IDENTIFIED BY 'vulnerableweb';" && \
+#   mysql -u root -e "GRANT ALL PRIVILEGES ON vulnweb.* TO 'vulnerableweb'@'%';" && \
+#   mysql -u root -e "FLUSH PRIVILEGES;" && \
+#   mysql -u vulnerableweb -pvulnerableweb vulnweb < database.sql
 
-RUN rm database.sql
+# RUN rm database.sql
 
 # Expose NGINX and MySQL ports
 EXPOSE 80 3306
