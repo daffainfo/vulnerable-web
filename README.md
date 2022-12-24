@@ -32,6 +32,11 @@ $ docker run -p80:80 --name vulnerable-web -d -t vulnerable-web:latest
 $ curl "http://localhost:80"
 ```
 
+## Installation (Docker Compose)
+```
+$ docker-compose up -d
+```
+
 ## Installation (Docker Hub)
 ```
 $ docker run -p80:80 --name vulnerable-web -t daffainfo/vulnerable-web:latest
