@@ -1,5 +1,5 @@
 <?php
-$servername = "database";
+$servername = "127.0.0.1";
 $username = "vulnerableweb";
 $password = "vulnerableweb";
 $databasename = "vulnweb";
